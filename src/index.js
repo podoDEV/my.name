@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import {Route, Switch} from 'react-router-dom';
 import {Provider} from 'react-redux';
 
+// import '../st/animated-router.css';
+
 import Layout from './components/layout';
 import A from './components/A';
 import B from './components/B';
