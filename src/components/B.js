@@ -1,17 +1,22 @@
 import React from 'react';
 import {push as locationPush} from 'react-router-redux';
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 class B extends React.Component {
-  handleClick = () => {
-    this.props.locationPush('/C');
-  };
+  // handleClick = () => {
+  //   this.props.locationPush('/C');
+  // };
 
   render() {
     return (
-      <div>
+      <div style={{ height: 300, backgroundColor: "blue" }}>
         B!
-        <button onClick={this.handleClick}>go C</button>
+        <Link
+          to='/C'
+        >
+          go C
+        </Link>
       </div>
     );
   }

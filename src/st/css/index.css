@@ -1,0 +1,76 @@
+@font-face {
+  font-family: 'AvantGardeI';
+  src: url('../fonts/AvantGardeITCTT.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'AvantGardeIBold';
+  src: url('../fonts/AvantGardeITCTTBold.ttf') format('opentype');
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'AvantGardeI', Avenir, sans-serif;
+  height: 100%;
+  width: 100vw;
+  margin: 0;
+  font-size: 13px;
+}
+
+#root, .wrap , .main, .content {
+  /*display: flex;*/
+  /*justify-content: center;*/
+  /*align-items: center;*/
+}
+
+
+.front__main {
+  display: flex;
+  height: 100%;
+}
+
+.front__logo {
+  font-family: AvantGardeIBold, sans-serif;
+  font-size: 200px;
+  width: 800px;
+  padding: 25px 65px 0;
+}
+
+.front__login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.front__form {
+  font-family: Avenir-light, sans-serif;
+  display: flex;
+  padding: 12px 0;
+}
+
+.front__form-underline {
+  border-bottom: 1px solid #6f6f6f;
+}
+
+.front__login__title {
+  font-size: 28px;
+}
+
+.front__join__in {
+  font-size: 26px;
+  text-decoration: none;
+  color: #fe1313;
+}
+
+.front__form input {
+  border: none;
+  outline: none;
+  background-color: white;
+  font-size: 18px;
+  width: 328px;
+  font-family: Avenir, sans-serif;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import {push as locationPush} from 'react-router-redux';
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 class C extends React.Component {
@@ -9,13 +10,16 @@ class C extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={{ height: 300, backgroundColor: "green" }}>
         C!
-        <button onClick={this.handleClick}>go A</button>
+        <Link to='/'>
+          go A
+        </Link>
       </div>
     );
   }
 }
+
 
 const mapDispatchToProps = {
   locationPush
