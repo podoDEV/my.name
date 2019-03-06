@@ -33,23 +33,19 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0 1000px white inset;
 }
 
-#root, .wrap , .main, .content {
-  /*display: flex;*/
-  /*justify-content: center;*/
-  /*align-items: center;*/
-}
-
-
 .front__main {
   display: flex;
-  height: 100%;
 }
 
 .front__logo {
   font-family: AvantGardeIBold, sans-serif;
-  font-size: 200px;
-  width: 800px;
+  font-size: 10em;
+  width: 1000px;
   padding: 25px 65px 0;
+}
+
+.front__logo__typing {
+  display: inline-block;
 }
 
 .front__login {

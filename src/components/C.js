@@ -10,7 +10,7 @@ class C extends React.Component {
 
   render() {
     return (
-      <div style={{ height: 300, backgroundColor: "green" }}>
+      <div style={{ backgroundColor: "green" }}>
         C!
         <Link to='/'>
           go A

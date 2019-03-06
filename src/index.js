@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, withRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
-import SwipeableRoutes from 'react-swipeable-routes';
+import {TransitionGroup, CSSTransition} from 'react-transition-group';
+
 import './st/css/reset.css';
 import './st/css/index.css';
+import './st/css/transition.css';
 
 import Layout from './components/layout';
 import Home from './components/home';
@@ -21,16 +23,30 @@ import store, {sagaMiddleware} from './store';
 
 // sagaMiddleware.run(sagas);
 
+function App({location}) {
+  return (
+    <Layout>
+      <TransitionGroup className="transition-group">
+        <CSSTransition key={location.key} timeout={{enter: 300, exit: 300}} classNames="fade">
+          <section className="route-section">
+            <Switch location={location}>
+              <Route exact path="/" component={Home} />
+              <Route path="/B" component={B} />
+              <Route path="/C" component={C} />
+            </Switch>
+          </section>
+        </CSSTransition>
+      </TransitionGroup>
+    </Layout>
+  );
+}
+
+const AppWithRouter = withRouter(App);
+
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={browserHistory}>
-      <Layout>
-        <SwipeableRoutes>
-          <Route exact path="/" component={Home} />
-          <Route path="/B" component={B} />
-          <Route path="/C" component={C} />
-        </SwipeableRoutes>
-      </Layout>
+      <AppWithRouter />
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root')

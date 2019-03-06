@@ -1,10 +1,10 @@
 import React from 'react';
-import App from '../src/App';
+import Home from '../src/components/home';
 
 import {storiesOf} from '@storybook/react';
 
-const stories = storiesOf('app test', module);
+const stories = storiesOf('home test', module);
 
 stories.add('basic', () => {
-  return <App />;
+  return <Home />;
 });

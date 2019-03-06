@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import Typing, {Backspace} from 'react-typing-animation';
 
-const nameList = ['jayoung', 'dalin', 'jung', 'heebeom', 'haesung', 'minsoo'];
+const nameList = ['______', 'jayoung', 'dalin', 'jung', 'heebeom', 'haesung', 'minsoo'];
 
 class Home extends React.Component {
   // handleClick = () => {
@@ -20,19 +20,16 @@ class Home extends React.Component {
           name
           <br />
           is{' '}
-          <Typing loop speed={50}>
-            {/*<span>jung</span>*/}
-            {/*<Backspace delay={750} count={10} />*/}
-            {/*<span>Dalin</span>*/}
-            {/*<Backspace delay={750} count={10} />*/}
+          <Typing loop speed={50} className="front__logo__typing">
             {nameList.map((name, idx) => {
               return (
                 <span key={`${name}__${idx}`}>
                   <span>{name}</span>
-                  <Backspace delay={750} count={10} />
+                  <Backspace delay={750} count={30} />
                 </span>
               );
             })}
+            <Typing.Reset count={1} delay={500} />
           </Typing>
         </div>
         <div className="front__login">
