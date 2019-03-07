@@ -3,6 +3,7 @@ import {push as locationPush} from 'react-router-redux';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import Typing, {Backspace} from 'react-typing-animation';
+import {Grid, Row, Col} from 'react-flexbox-grid';
 
 const nameList = ['______', 'jayoung', 'dalin', 'jung', 'heebeom', 'haesung', 'minsoo'];
 
@@ -13,44 +14,50 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div className="front__main">
-        <div className="front__logo">
-          my
-          <br />
-          name
-          <br />
-          is{' '}
-          <Typing loop speed={50} className="front__logo__typing">
-            {nameList.map((name, idx) => {
-              return (
-                <span key={`${name}__${idx}`}>
-                  <span>{name}</span>
-                  <Backspace delay={750} count={30} />
-                </span>
-              );
-            })}
-            <Typing.Reset count={1} delay={500} />
-          </Typing>
-        </div>
-        <div className="front__login">
-          <p className="front__login__title">log in</p>
-          <div className="front__form front__form-underline">
-            <input type="email" name="email" id="email" placeholder="e-mail" />
-          </div>
-          <div className="front__form">
-            <input type="password" name="password" id="password" placeholder="password" />
-          </div>
-          <Link
-            to={{
-              pathname: '/B',
-              state: {prev: false}
-            }}
-            className="front__join__in"
-          >
-            join in
-          </Link>
-        </div>
-      </div>
+      <Grid>
+        <Row>
+          <Col md={12} lg={8} className="front__logo">
+            <div className="front__logo__typing">
+              my
+              <br />
+              name
+              <br />
+              is{' '}
+              <Typing loop speed={50} className="front__logo__typing__name">
+                {nameList.map((name, idx) => {
+                  return (
+                    <span key={`${name}__${idx}`}>
+                      <span>{name}</span>
+                      <Backspace delay={750} count={30} />
+                    </span>
+                  );
+                })}
+                <Typing.Reset count={1} delay={500} />
+              </Typing>
+            </div>
+          </Col>
+          <Col md={12} lg={4}>
+            <div className="front__login">
+              <p className="front__login__title">log in</p>
+              <div className="front__form front__form-underline">
+                <input type="email" name="email" id="email" placeholder="e-mail" />
+              </div>
+              <div className="front__form">
+                <input type="password" name="password" id="password" placeholder="password" />
+              </div>
+              <Link
+                to={{
+                  pathname: '/B',
+                  state: {prev: false}
+                }}
+                className="front__join__in"
+              >
+                join in
+              </Link>
+            </div>
+          </Col>
+        </Row>
+      </Grid>
     );
   }
 }
