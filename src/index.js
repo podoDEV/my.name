@@ -27,7 +27,7 @@ function App({location}) {
   return (
     <Layout>
       <TransitionGroup className="transition-group">
-        <CSSTransition key={location.key} timeout={{enter: 300, exit: 300}} classNames="fade">
+        <CSSTransition key={location.key} timeout={{enter: 300, exit: 300}} classNames="slide">
           <section className="route-section">
             <Switch location={location}>
               <Route exact path="/" component={Home} />

@@ -45,10 +45,11 @@ select:-webkit-autofill:focus {
 
 .front__logo__typing__name {
   font-size: 10rem;
+  font-weight: lighter;
 }
 
 .front__login {
-  padding: 100% 60px;
+  padding: 100% 10%;
 }
 
 .front__form {

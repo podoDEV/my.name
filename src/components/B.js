@@ -10,7 +10,7 @@ class B extends React.Component {
 
   render() {
     return (
-      <div style={{ backgroundColor: "blue" }}>
+      <div style={{ backgroundColor: "blue", height: '400px' }}>
         B!
         <Link
           to='/C'
