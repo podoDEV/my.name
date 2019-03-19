@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import Typing, {Backspace} from 'react-typing-animation';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 
-const nameList = ['______', 'jayoung', 'dalin', 'jung', 'heebeom', 'haesung', 'minsoo'];
+const nameList = ['______', 'jayoung', 'dalin', 'jung', 'heebeom', 'haesung', 'minsoo', 'kijung'];
 
 class Home extends React.Component {
   // handleClick = () => {

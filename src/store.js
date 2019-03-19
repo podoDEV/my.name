@@ -8,6 +8,9 @@ import {routerMiddleware} from 'react-router-redux';
 import reducers from './reducers';
 
 const initialState = {
+  register: {
+    name: ''
+  },
   router: {}
 };
 

@@ -1,32 +1,46 @@
 import React from 'react';
-import {push as locationPush} from 'react-router-redux';
-import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
+import {push as locationPush} from 'react-router-redux';
+import {changeName} from '../action/register';
 
 class B extends React.Component {
-  // handleClick = () => {
-  //   this.props.locationPush('/C');
-  // };
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    changeName: PropTypes.func.isRequired
+  };
 
   render() {
+    const {name, changeName} = this.props;
+
     return (
-      <div style={{ backgroundColor: "blue", height: '400px' }}>
-        B!
-        <Link
-          to='/C'
-        >
-          go C
-        </Link>
+      <div>
+        <input
+          type="text"
+          value={name}
+          onChange={(ev) => changeName(ev.target.value)}
+        />
+        <Link to="/C">go C</Link>
       </div>
     );
   }
 }
 
+const mapStateToProps = (state) => {
+  const {name} = state.register;
+
+  return {
+    name
+  };
+};
+
 const mapDispatchToProps = {
-  locationPush
+  locationPush,
+  changeName
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(B);

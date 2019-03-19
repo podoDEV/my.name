@@ -1,10 +1,9 @@
-import {TEST} from '../action/register';
+import {combineReducers as combine} from 'redux';
+import {routerReducer} from 'react-router-redux';
 
-export default (state = {}, actions) => {
-  switch (actions.type) {
-    case TEST:
-      return {};
-    default:
-      return state;
-  }
-};
+import register from './register';
+
+export default combine({
+  register,
+  router: routerReducer
+});
