@@ -101,8 +101,8 @@ select:-webkit-autofill:focus {
 
   padding-bottom: 5px;
 
-  -webkit-transition: width .25s ease-in-out;
-  transition: width .25s ease-in-out;
+  -webkit-transition: width .1s ease-in-out;
+  transition: width .1s ease-in-out;
 }
 
 .forms__input__border--invalid {
@@ -136,5 +136,5 @@ select:-webkit-autofill:focus {
 
 .forms__input__message {
   margin-top: 10px;
-  color: #ff0000;
+  color: #4a4a4a;
 }

@@ -52,7 +52,7 @@ export default class Input extends Component {
             onChange={this.onChangeHandler}
             style={{
               fontSize,
-              width: (value.length + 1) * (fontSizeWithoutPX / 2 + 3),
+              width: (value.length + 1) * (fontSizeWithoutPX / 2) + fontSizeWithoutPX,
               minWidth: (placeholder.length + 1) * (fontSizeWithoutPX / 2)
             }}
             placeholder={placeholder}
@@ -70,7 +70,8 @@ export default class Input extends Component {
             style={{
               width: dotSize,
               height: dotSize,
-              borderRadius: dotSize
+              borderRadius: dotSize,
+              marginLeft: dotSize
             }}
           />
         </div>
