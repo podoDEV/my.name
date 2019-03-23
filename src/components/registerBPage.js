@@ -3,7 +3,7 @@ import {push as locationPush} from 'react-router-redux';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-class C extends React.Component {
+class RegisterBPage extends React.Component {
   handleClick = () => {
     this.props.locationPush('/');
   };
@@ -11,9 +11,9 @@ class C extends React.Component {
   render() {
     return (
       <div style={{ backgroundColor: "green", height: '400px' }}>
-        C!
+        B!
         <Link to='/'>
-          go A
+          go home
         </Link>
       </div>
     );
@@ -28,4 +28,4 @@ const mapDispatchToProps = {
 export default connect(
   null,
   mapDispatchToProps
-)(C);
+)(RegisterBPage);

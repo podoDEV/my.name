@@ -8,12 +8,11 @@ import Input from './register/input';
 import {changeName, changePassword} from '../action/register';
 import {emailRegister} from '../validation';
 
-class B extends React.Component {
+class RegisterAPage extends React.Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
     changeName: PropTypes.func.isRequired
   };
-
   render() {
     const {name, changeName, password, changePassword} = this.props;
 
@@ -48,7 +47,11 @@ class B extends React.Component {
           fontSize="16px"
           placeholder="small font"
         />
-        <Link to="/C">go C</Link>
+        <Link 
+          to="/register/second"
+        >
+          go C
+        </Link>
       </div>
     );
   }
@@ -72,4 +75,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(B);
+)(RegisterAPage);

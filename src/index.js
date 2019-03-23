@@ -10,8 +10,8 @@ import './st/css/transition.css';
 
 import Layout from './components/layout';
 import Home from './components/home';
-import B from './components/B';
-import C from './components/C';
+import RegisterAPage from './components/registerAPage';
+import RegisterBPage from './components/registerBPage';
 
 import browserHistory from './browserHistory';
 
@@ -31,8 +31,8 @@ function App({location}) {
           <section className="route-section">
             <Switch location={location}>
               <Route exact path="/" component={Home} />
-              <Route path="/B" component={B} />
-              <Route path="/C" component={C} />
+              <Route path="/register/first" component={RegisterAPage} />
+              <Route path="/register/second" component={RegisterBPage} />
             </Switch>
           </section>
         </CSSTransition>

@@ -46,10 +46,7 @@ class Home extends React.Component {
                 <input type="password" name="password" id="password" placeholder="password" />
               </div>
               <Link
-                to={{
-                  pathname: '/B',
-                  state: {prev: false}
-                }}
+                to="/register/first"
                 className="front__join__in"
               >
                 join in
