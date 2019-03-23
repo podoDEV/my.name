@@ -1,13 +1,22 @@
-import {CHANGE_NAME} from '../action/register';
+import {CHANGE_NAME, CHANGE_PASSWORD} from '../action/register';
 
-export default (state = {
-  name: ''
-}, action) => {
+export default (
+  state = {
+    name: '',
+    password: ''
+  },
+  action
+) => {
   switch (action.type) {
     case CHANGE_NAME:
       return {
         ...state,
         name: action.name
+      };
+    case CHANGE_PASSWORD:
+      return {
+        ...state,
+        password: action.password
       };
     default:
       return state;

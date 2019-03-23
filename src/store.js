@@ -9,7 +9,8 @@ import reducers from './reducers';
 
 const initialState = {
   register: {
-    name: ''
+    name: '',
+    password: ''
   },
   router: {}
 };
