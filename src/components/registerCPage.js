@@ -7,8 +7,8 @@ import PropTypes from 'prop-types';
 import Navigation from './register/navigation';
 import {changeStep} from '../action/registerNavigation';
 
-class RegisterBPage extends React.Component {
-  pageIndex = 1;
+class RegisterCPage extends React.Component {
+  pageIndex = 2;
 
   static propTypes = {
     changeStep: PropTypes.func.isRequired
@@ -40,4 +40,4 @@ const mapDispatchToProps = {
 export default connect(
   null,
   mapDispatchToProps
-)(RegisterBPage);
+)(RegisterCPage);

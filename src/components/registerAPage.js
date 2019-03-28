@@ -5,19 +5,30 @@ import {Link} from 'react-router-dom';
 import {push as locationPush} from 'react-router-redux';
 
 import Input from './register/input';
+import Navigation from './register/navigation';
 import {changeName, changePassword} from '../action/register';
+import {changeStep} from '../action/registerNavigation';
 import {emailRegister} from '../validation';
 
 class RegisterAPage extends React.Component {
+  pageIndex = 0;
+
   static propTypes = {
     name: PropTypes.string.isRequired,
-    changeName: PropTypes.func.isRequired
+    changeName: PropTypes.func.isRequired,
+    changeStep: PropTypes.func.isRequired
   };
+
+  componentDidMount() {
+    this.props.changeStep(this.pageIndex);
+  }
+
   render() {
     const {name, changeName, password, changePassword} = this.props;
 
     return (
       <div style={{padding: '10%'}}>
+        <Navigation />
         <Input
           type="text"
           value={name}
@@ -47,11 +58,7 @@ class RegisterAPage extends React.Component {
           fontSize="16px"
           placeholder="small font"
         />
-        <Link 
-          to="/register/second"
-        >
-          go C
-        </Link>
+        <Link to="/register/second">go C</Link>
       </div>
     );
   }
@@ -69,7 +76,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   locationPush,
   changeName,
-  changePassword
+  changePassword,
+  changeStep
 };
 
 export default connect(
