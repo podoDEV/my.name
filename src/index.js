@@ -1,17 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Route, Switch, withRouter} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import {Provider} from 'react-redux';
-import {TransitionGroup, CSSTransition} from 'react-transition-group';
 
 import './st/css/reset.css';
 import './st/css/index.css';
-import './st/css/transition.css';
 
 import Layout from './components/layout';
 import Home from './components/home';
 import RegisterAPage from './components/registerAPage';
 import RegisterBPage from './components/registerBPage';
+import RegisterCPage from './components/registerCPage';
 
 import browserHistory from './browserHistory';
 
@@ -23,30 +22,17 @@ import store, {sagaMiddleware} from './store';
 
 // sagaMiddleware.run(sagas);
 
-function App({location}) {
-  return (
-    <Layout>
-      <TransitionGroup className="transition-group">
-        <CSSTransition key={location.key} timeout={{enter: 300, exit: 300}} classNames="slide">
-          <section className="route-section">
-            <Switch location={location}>
-              <Route exact path="/" component={Home} />
-              <Route path="/register/first" component={RegisterAPage} />
-              <Route path="/register/second" component={RegisterBPage} />
-            </Switch>
-          </section>
-        </CSSTransition>
-      </TransitionGroup>
-    </Layout>
-  );
-}
-
-const AppWithRouter = withRouter(App);
-
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={browserHistory}>
-      <AppWithRouter />
+      <Layout>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/register/first" component={RegisterAPage} />
+          <Route path="/register/second" component={RegisterBPage} />
+          <Route path="/register/third" component={RegisterCPage} />
+        </Switch>
+      </Layout>
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root')
