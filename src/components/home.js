@@ -46,7 +46,7 @@ class Home extends React.Component {
                 <input type="password" name="password" id="password" placeholder="password" />
               </div>
               <Link
-                to="/register/first"
+                to="/signup/email"
                 className="front__join__in"
               >
                 join in

@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import NavigationStep from './navigationStep';
 
-const stepNames = ['account?', 'name?', 'step2', 'step3', 'step4'];
+const stepNames = ['Account?', 'Name?', 'Identification?', 'Interest?', 'Social'];
 const links = [
-  '/register/first',
-  '/register/second',
-  '/register/third',
-  '/register/fourth',
-  '/register/fifth'
+  '/signup/email',
+  '/signup/name',
+  '/signup/identification',
+  '/signup/interest',
+  '/signup/social'
 ];
 
 class RegisterNavigation extends Component {

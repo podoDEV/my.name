@@ -8,3 +8,12 @@ export const emailRegister = (email) => {
     errorMessage: isValid ? '' : 'Email Address in invalid format'
   }
 };
+
+export const nameRegister = (name) => {
+  const isValid = emailRegex.test(name);
+
+  return {
+    isValid,
+    errorMessage: isValid ? '' : 'Name in invalid format'
+  }
+}

@@ -8,9 +8,10 @@ import './st/css/index.css';
 
 import Layout from './components/layout';
 import Home from './components/home';
-import RegisterAPage from './components/registerAPage';
-import RegisterBPage from './components/registerBPage';
-import RegisterCPage from './components/registerCPage';
+import SignupEmailPage from './components/signupEmailPage';
+import SignupNamePage from './components/signupNamePage';
+import SignupIdentificationPage from './components/signupIdentificationPage';
+import SignupInterestPage from './components/signupInterestPage';
 
 import browserHistory from './browserHistory';
 
@@ -28,9 +29,10 @@ ReactDOM.render(
       <Layout>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/register/first" component={RegisterAPage} />
-          <Route path="/register/second" component={RegisterBPage} />
-          <Route path="/register/third" component={RegisterCPage} />
+          <Route path="/signup/email" component={SignupEmailPage} />
+          <Route path="/signup/name" component={SignupNamePage} />
+          <Route path="/signup/identification" component={SignupIdentificationPage} />
+          <Route path="/signup/interest" component={SignupInterestPage} />
         </Switch>
       </Layout>
     </ConnectedRouter>
