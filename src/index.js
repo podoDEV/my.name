@@ -20,9 +20,9 @@ import browserHistory from './browserHistory';
 import {ConnectedRouter} from 'react-router-redux';
 
 import store, {sagaMiddleware} from './store';
-// import sagas from './sagas';
+import sagas from './sagas';
 
-// sagaMiddleware.run(sagas);
+sagaMiddleware.run(sagas);
 
 ReactDOM.render(
   <Provider store={store}>

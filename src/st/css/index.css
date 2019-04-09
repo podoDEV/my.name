@@ -49,7 +49,7 @@ select:-webkit-autofill:focus {
 }
 
 .front__login {
-  padding: 100% 10%;
+  /*padding: 100% 10%;*/
 }
 
 .front__social__btn {
