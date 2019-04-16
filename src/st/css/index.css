@@ -82,7 +82,7 @@ select:-webkit-autofill:focus {
 }
 
 .front__register {
-  padding: 0 10%;
+  padding: 0 6%;
 }
 
 .front__register__navigation {
@@ -100,9 +100,10 @@ select:-webkit-autofill:focus {
 }
 
 .front__register__next__title {
-  font-size: 40px;
+  font-size: 3rem;
   text-decoration: none;
-  color: #fe1313;
+  color: #000;
+  font-family: Avenir-book, sans-serif;
 }
 
 /* forms input */

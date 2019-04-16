@@ -11,7 +11,7 @@ import {changeStep} from '../action/registerNavigation';
 import {nameRegister} from '../validation';
 
 class SignupInterestPage extends React.Component {
-  pageIndex = 3;
+  pageIndex = 2;
 
   static propTypes = {
     interest: PropTypes.string.isRequired,

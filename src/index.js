@@ -10,8 +10,9 @@ import Layout from './components/layout';
 import Home from './components/home';
 import SignupEmailPage from './components/signupEmailPage';
 import SignupNamePage from './components/signupNamePage';
-import SignupIdentificationPage from './components/signupIdentificationPage';
 import SignupInterestPage from './components/signupInterestPage';
+import SignupSocialPage from './components/signupSocialPage';
+import SignupMorePage from './components/signupMorePage';
 
 import browserHistory from './browserHistory';
 
@@ -31,8 +32,9 @@ ReactDOM.render(
           <Route exact path="/" component={Home} />
           <Route path="/signup/email" component={SignupEmailPage} />
           <Route path="/signup/name" component={SignupNamePage} />
-          <Route path="/signup/identification" component={SignupIdentificationPage} />
           <Route path="/signup/interest" component={SignupInterestPage} />
+          <Route path="/signup/social" component={SignupSocialPage} />
+          <Route path="/signup/more" component={SignupMorePage} />
         </Switch>
       </Layout>
     </ConnectedRouter>

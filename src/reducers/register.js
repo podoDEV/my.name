@@ -1,12 +1,18 @@
-import {CHANGE_EMAIL, CHANGE_PASSWORD, CHANGE_NAME, CHANGE_IDENTIFICATION, CHANGE_INTEREST} from '../action/register';
+import {CHANGE_EMAIL, CHANGE_PASSWORD, CHANGE_NAME, CHANGE_INTEREST, CHANGE_SOCIAL, CHANGE_JOB, CHANGE_COMPANY, CHANGE_GENDER, CHANGE_LOCATION, CHANGE_PHILOSOPHY, CHANGE_CONTACT} from '../action/register';
 
 export default (
   state = {
     email: '',
     password: '',
     name: '',
-    identification: '',
-    interest: ''
+    interest: '',
+    social: '',
+    job: '',
+    company: '',
+    gender: '',
+    location: '',
+    philosophy: '',
+    contact: ''
   },
   action
 ) => {
@@ -26,15 +32,45 @@ export default (
         ...state,
         name: action.name
       };
-    case CHANGE_IDENTIFICATION:
-      return {
-        ...state,
-        identification: action.identification
-      };
     case CHANGE_INTEREST:
       return {
         ...state,
         interest: action.interest
+      };
+    case CHANGE_SOCIAL:
+      return {
+        ...state,
+        social: action.social
+      };
+    case CHANGE_JOB:
+      return {
+        ...state,
+        job: action.job
+      };
+    case CHANGE_COMPANY:
+      return {
+        ...state,
+        company: action.company
+      };
+    case CHANGE_GENDER:
+      return {
+        ...state,
+        gender: action.gender
+      };
+    case CHANGE_LOCATION:
+      return {
+        ...state,
+        location: action.location
+      };
+    case CHANGE_PHILOSOPHY:
+      return {
+        ...state,
+        philosophy: action.philosophy
+      };
+    case CHANGE_CONTACT:
+      return {
+        ...state,
+        contact: action.contact
       };
     default:
       return state;

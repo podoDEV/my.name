@@ -46,7 +46,7 @@ class SignupNamePage extends React.Component {
         </div>
         <div className="front__register__next">
           <Link 
-            to="/signup/identification"
+            to="/signup/interest"
             className="front__register__next__title"
           >
             done

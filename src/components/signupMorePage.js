@@ -6,15 +6,15 @@ import PropTypes from 'prop-types';
 
 import Input from './register/input';
 import Navigation from './register/navigation';
-import {changeSocial} from '../action/register';
+import {changeJob, changeCompany, changeGender, changeLocation, changePhilosophy, changeContact} from '../action/register';
 import {changeStep} from '../action/registerNavigation';
 import {nameRegister} from '../validation';
 
-class SignupSocialPage extends React.Component {
-  pageIndex = 3;
+class SignupMorePage extends React.Component {
+  pageIndex = 4;
 
   static propTypes = {
-    social: PropTypes.string.isRequired,
+    job: PropTypes.string.isRequired,
     changeStep: PropTypes.func.isRequired
   };
 
@@ -27,7 +27,7 @@ class SignupSocialPage extends React.Component {
   }
 
   render() {
-    const {name, changeName} = this.props;
+    const {job, company, gender, location, philosophy, contact, changeJob, changeCompany, changeGender, changeLocation, changePhilosophy, changeContact} = this.props;
 
     return (
       <div className="front__register">
@@ -37,16 +37,16 @@ class SignupSocialPage extends React.Component {
         <div className="front__register__input">
           <Input
             type="text"
-            value={social}
-            onChange={(ev) => changeSocial(ev.target.value)}
+            value={job}
+            onChange={(ev) => changeJob(ev.target.value)}
             fontSize="70px"
-            placeholder="name"
+            placeholder="search"
             validator={nameRegister}
           />
         </div>
         <div className="front__register__next">
           <Link 
-            to="/signup/more"
+            to="/signup/interest"
             className="front__register__next__title"
           >
             done
@@ -58,20 +58,20 @@ class SignupSocialPage extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  const {social} = state.register;
+  const {job} = state.register;
 
   return {
-    social
+    job
   };
 };
 
 const mapDispatchToProps = {
   locationPush,
-  changeSocial,
+  changeJob,
   changeStep
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SignupSocialPage);
+)(SignupMorePage);

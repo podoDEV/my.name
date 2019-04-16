@@ -12,8 +12,14 @@ const initialState = {
     email: '',
     password: '',
     name: '',
-    identification: '',
-    interest: ''
+    interest: '',
+    social: '',
+    job: '',
+    company: '',
+    gender: '',
+    location: '',
+    philosophy: '',
+    contact: ''
   },
   router: {}
 };
