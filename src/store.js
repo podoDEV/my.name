@@ -12,7 +12,7 @@ const initialState = {
     email: '',
     password: '',
     name: '',
-    interest: '',
+    interest: [],
     social: '',
     job: '',
     company: '',

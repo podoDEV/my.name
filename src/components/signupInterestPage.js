@@ -4,22 +4,30 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import Input from './register/input';
+import SearchInput from './register/searchInput';
+import Tag from './tag';
 import Navigation from './register/navigation';
-import {changeInterest} from '../action/register';
+import {addInterest, removeInterest} from '../action/register';
 import {changeStep} from '../action/registerNavigation';
-import {nameRegister} from '../validation';
 
 class SignupInterestPage extends React.Component {
   pageIndex = 2;
 
-  static propTypes = {
-    interest: PropTypes.string.isRequired,
-    changeStep: PropTypes.func.isRequired
+  state = {
+    interestInput: ''
   };
 
-  handleClick = () => {
-    this.props.locationPush('/');
+  onChangeInterestInput = (input) => {
+    this.setState({
+      interestInput: input
+    });
+  };
+
+  static propTypes = {
+    interest: PropTypes.array.isRequired,
+    changeStep: PropTypes.func.isRequired,
+    removeInterest: PropTypes.func.isRequired,
+    addInterest: PropTypes.func.isRequired
   };
 
   componentDidMount() {
@@ -27,7 +35,8 @@ class SignupInterestPage extends React.Component {
   }
 
   render() {
-    const {interest, changeInterest} = this.props;
+    const {interestInput} = this.state;
+    const {interest, addInterest, removeInterest} = this.props;
 
     return (
       <div className="front__register">
@@ -35,20 +44,23 @@ class SignupInterestPage extends React.Component {
           <Navigation />
         </div>
         <div className="front__register__input">
-          <Input
+          <SearchInput
             type="text"
-            value={interest}
-            onChange={(ev) => changeInterest(ev.target.value)}
+            value={interestInput}
+            changerValue={this.onChangeInterestInput}
+            onChange={(ev) => this.onChangeInterestInput(ev.target.value)}
             fontSize="70px"
             placeholder="search"
-            validator={nameRegister}
+            clickResult={addInterest}
           />
         </div>
+        <div className="front__register__tag__container">
+          {interest.map((interest) => (
+            <Tag title={interest} removeInterest={removeInterest} key={interest} />
+          ))}
+        </div>
         <div className="front__register__next">
-          <Link 
-            to="/signup/social"
-            className="front__register__next__title"
-          >
+          <Link to="/signup/social" className="front__register__next__title">
             done
           </Link>
         </div>
@@ -67,7 +79,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   locationPush,
-  changeInterest,
+  addInterest,
+  removeInterest,
   changeStep
 };
 

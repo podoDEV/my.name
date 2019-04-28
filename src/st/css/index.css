@@ -15,7 +15,7 @@
 html,
 body {
   font-family: 'AvantGardeI', Avenir, sans-serif;
-  /*height: 100%;*/
+  height: 100vh;
   width: 100vw;
   margin: 0;
   font-size: 13px;
@@ -52,6 +52,29 @@ select:-webkit-autofill:focus {
   padding: 100% 10%;
 }
 
+.front__social__btn {
+  cursor: pointer;
+  width: 100%;
+  height: 43px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.front__social__btn.google {
+  margin: 10px 0;
+}
+
+.google span {
+  margin-left: 34px;
+  font-size: 15px;
+}
+
+.front__social__btn.facebook {
+  background: 2px/35px url('../img/facebook_logo.png') #4267b2 no-repeat;
+  color: white;
+  border: 1px solid #4267b2;
+}
+
 .front__form {
   font-family: Avenir-light, sans-serif;
   padding: 12px 0;
@@ -85,6 +108,44 @@ select:-webkit-autofill:focus {
   padding: 0 6%;
 }
 
+.front__register__tag__container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.front__register__tag__container .tag {
+  position: relative;
+  border: 1px solid #ff0000;
+  border-radius: 50px;
+  padding: 15px 30px;
+  font-size: 30px;
+  color: #ff0000;
+  font-family: Avenir, sans-serif;
+  margin: 5px 15px 5px 0;
+  text-align: center;
+}
+
+.tag .tag__hover__area {
+  background: rgba(155, 155, 155, 0.9);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 50px;
+  padding: 10px;
+}
+
+.tag__hover__area button {
+  outline: none;
+  cursor: pointer;
+  border: none;
+  background: none;
+  width: 30px;
+  font-size: 30px;
+  color: white;
+}
+
 .front__register__navigation {
   padding: 6% 0;
   height: 200px;
@@ -100,7 +161,7 @@ select:-webkit-autofill:focus {
 }
 
 .front__register__next__title {
-  font-size: 3rem;
+  font-size: 40px;
   text-decoration: none;
   color: #000;
   font-family: Avenir-book, sans-serif;
@@ -111,6 +172,30 @@ select:-webkit-autofill:focus {
   display: flex;
   flex-direction: column;
   font-family: Avenir-light, sans-serif;
+}
+
+.search__result__area {
+  position: relative;
+}
+
+.search__result__list {
+  width: 90%;
+  position: absolute;
+  padding: 15px 0;
+  border: 1px solid #ccc;
+  border-top: none;
+  background: #fff;
+  z-index: 100;
+}
+
+.search__result {
+  padding: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.search__result.focus {
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .forms__input__area {

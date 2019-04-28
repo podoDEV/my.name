@@ -1,7 +1,8 @@
 export const CHANGE_EMAIL = 'CHANGE_EMAIL';
 export const CHANGE_PASSWORD = 'CHANGE_PASSWORD';
 export const CHANGE_NAME = 'CHANGE_NAME';
-export const CHANGE_INTEREST = 'CHANGE_INTEREST';
+export const ADD_INTEREST = 'ADD_INTEREST';
+export const REMOVE_INTEREST = 'REMOVE_INTEREST';
 export const CHANGE_SOCIAL = 'CHANGE_SOCIAL';
 export const CHANGE_JOB = 'CHANGE_JOB';
 export const CHANGE_COMPANY = 'CHANGE_COMPANY';
@@ -25,8 +26,13 @@ export const changeName = (name) => ({
   name
 });
 
-export const changeInterest = (interest) => ({
-  type: CHANGE_INTEREST,
+export const removeInterest = (title) => ({
+  type: REMOVE_INTEREST,
+  title
+});
+
+export const addInterest = (interest) => ({
+  type: ADD_INTEREST,
   interest
 });
 

@@ -4,13 +4,19 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import Typing, {Backspace} from 'react-typing-animation';
 import {Grid, Row, Col} from 'react-flexbox-grid';
+import FacebookLogin from 'react-facebook-login';
+import GoogleLogin from 'react-google-login';
 
 const nameList = ['______', 'jayoung', 'dalin', 'jung', 'heebeom', 'haesung', 'minsoo', 'kijung'];
 
 class Home extends React.Component {
-  // handleClick = () => {
-  //   this.props.locationPush('/B');
-  // };
+  responseFacebook = (response) => {
+    console.log(response);
+  };
+
+  responseGoogle = (response) => {
+    console.log(response);
+  };
 
   render() {
     return (
@@ -45,10 +51,26 @@ class Home extends React.Component {
               <div className="front__form">
                 <input type="password" name="password" id="password" placeholder="password" />
               </div>
-              <Link
-                to="/signup/email"
-                className="front__join__in"
-              >
+              <FacebookLogin
+                appId={698935940508634}
+                autoLoad={true}
+                fields="name,email,picture"
+                textButton="Login with Facebook!"
+                cssClass="front__social__btn facebook"
+                callback={this.responseFacebook}
+              />
+              <GoogleLogin
+                clientId="131962867282-q995m8m3rv24dhehumh84icg03ctd52v.apps.googleusercontent.com"
+                buttonText="Login with Google!"
+                onSuccess={this.responseGoogle}
+                onFailure={this.responseGoogle}
+                cookiePolicy={'single_host_origin'}
+                className="front__social__btn google"
+                style={{
+                  width: '100%'
+                }}
+              />
+              <Link to="/signup/email" className="front__join__in">
                 join in
               </Link>
             </div>
