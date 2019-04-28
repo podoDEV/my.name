@@ -34,6 +34,7 @@ class RegisterNavigation extends Component {
             return (
               <NavigationStep
                 step={idx}
+                key={idx}
                 link={isCurrent ? null : links[idx]}
                 currentStep={currentStep}
                 prevStep={prevStep}

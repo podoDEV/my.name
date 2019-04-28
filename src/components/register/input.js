@@ -9,7 +9,8 @@ export default class Input extends Component {
     onChange: PropTypes.func.isRequired,
     validator: PropTypes.func,
     fontSize: PropTypes.string,
-    placeholder: PropTypes.string
+    placeholder: PropTypes.string,
+    withKorean: PropTypes.bool
   };
 
   state = {
@@ -36,13 +37,13 @@ export default class Input extends Component {
   };
 
   render() {
-    const {type, value, fontSize = 'inherits', placeholder} = this.props;
+    const {type, value, fontSize = 'inherits', placeholder, withKorean = false} = this.props;
     const {isValid, errorMessage} = this.state;
     const fontSizeWithoutPX = Number.parseInt(fontSize);
-    const dotSize = fontSizeWithoutPX / 3;
+    const dotSize = fontSizeWithoutPX > 100 ? 50 : fontSizeWithoutPX / 3;
+    const width =
+      (value.length + 1) * (fontSizeWithoutPX / 2) + fontSizeWithoutPX * (withKorean ? 1.3 : 1);
 
-    // console.log((placeholder.length + 1) * (Number.parseInt(fontSize) / 2) > Number.parseInt(fontSize) / 3);
-    // @TODO: fontSize에 따라 minWidth를 조정해줘야함
     return (
       <div className={cls('forms__input__container')}>
         <div className={cls('forms__input__area')}>
@@ -52,7 +53,7 @@ export default class Input extends Component {
             onChange={this.onChangeHandler}
             style={{
               fontSize,
-              width: (value.length + 1) * (fontSizeWithoutPX / 2) + fontSizeWithoutPX,
+              width: this.props.value ? width : '100%',
               minWidth: (placeholder.length + 1) * (fontSizeWithoutPX / 2)
             }}
             placeholder={placeholder}

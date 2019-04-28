@@ -39,13 +39,14 @@ class SignupNamePage extends React.Component {
             type="text"
             value={name}
             onChange={(ev) => changeName(ev.target.value)}
-            fontSize="70px"
+            fontSize="300px"
             placeholder="name"
             validator={nameRegister}
+            withKorean={true}
           />
         </div>
         <div className="front__register__next">
-          <Link 
+          <Link
             to="/signup/interest"
             className="front__register__next__title"
           >

@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom';
 
 class NavigationStep extends Component {
   static propTypes = {
-    name: PropTypes.string.isRequired,
     step: PropTypes.number.isRequired,
     prevStep: PropTypes.number.isRequired,
     currentStep: PropTypes.number.isRequired

@@ -37,7 +37,7 @@ class SignupSocialPage extends React.Component {
         <div className="front__register__input">
           <Input
             type="text"
-            value={social}
+            value={name}
             onChange={(ev) => changeSocial(ev.target.value)}
             fontSize="70px"
             placeholder="name"
@@ -45,7 +45,7 @@ class SignupSocialPage extends React.Component {
           />
         </div>
         <div className="front__register__next">
-          <Link 
+          <Link
             to="/signup/more"
             className="front__register__next__title"
           >

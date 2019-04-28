@@ -1,11 +1,24 @@
-import {CHANGE_EMAIL, CHANGE_PASSWORD, CHANGE_NAME, CHANGE_INTEREST, CHANGE_SOCIAL, CHANGE_JOB, CHANGE_COMPANY, CHANGE_GENDER, CHANGE_LOCATION, CHANGE_PHILOSOPHY, CHANGE_CONTACT} from '../action/register';
+import {
+  CHANGE_EMAIL,
+  CHANGE_PASSWORD,
+  CHANGE_NAME,
+  ADD_INTEREST,
+  REMOVE_INTEREST,
+  CHANGE_SOCIAL,
+  CHANGE_JOB,
+  CHANGE_COMPANY,
+  CHANGE_GENDER,
+  CHANGE_LOCATION,
+  CHANGE_PHILOSOPHY,
+  CHANGE_CONTACT
+} from '../action/register';
 
 export default (
   state = {
     email: '',
     password: '',
     name: '',
-    interest: '',
+    interest: [],
     social: '',
     job: '',
     company: '',
@@ -32,10 +45,15 @@ export default (
         ...state,
         name: action.name
       };
-    case CHANGE_INTEREST:
+    case ADD_INTEREST:
       return {
         ...state,
-        interest: action.interest
+        interest: [...state.interest, action.interest]
+      };
+    case REMOVE_INTEREST:
+      return {
+        ...state,
+        interest: state.interest.filter((int) => int !== action.title)
       };
     case CHANGE_SOCIAL:
       return {
