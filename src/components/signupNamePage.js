@@ -39,7 +39,7 @@ class SignupNamePage extends React.Component {
             type="text"
             value={name}
             onChange={(ev) => changeName(ev.target.value)}
-            fontSize="300px"
+            fontSize="250px"
             placeholder="name"
             validator={nameRegister}
             withKorean={true}

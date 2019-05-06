@@ -155,6 +155,31 @@ select:-webkit-autofill:focus {
   padding: 5% 0;
 }
 
+.social__add__button {
+  display: block;
+  margin-top: 30px;
+  font-size: 58px;
+  text-decoration: none;
+  color: black;
+}
+
+.social__add__button:hover {
+  color: #ff0000;
+}
+
+.register__social__link__item {
+  display: flex;
+  font-size: 44px;
+  font-family: Avenir, sans-serif;
+  cursor: pointer;
+}
+
+.register__social__link__item a {
+  font-weight: lighter;
+  text-decoration: none;
+  color: #000;
+}
+
 .front__register__next {
   padding: 5% 0;
   text-align: right;

@@ -3,7 +3,8 @@ export const CHANGE_PASSWORD = 'CHANGE_PASSWORD';
 export const CHANGE_NAME = 'CHANGE_NAME';
 export const ADD_INTEREST = 'ADD_INTEREST';
 export const REMOVE_INTEREST = 'REMOVE_INTEREST';
-export const CHANGE_SOCIAL = 'CHANGE_SOCIAL';
+export const ADD_SOCIAL_LINK = 'ADD_SOCIAL_LINK';
+export const REMOVE_SOCIAL_LINK = 'REMOVE_SOCIAL_LINK';
 export const CHANGE_JOB = 'CHANGE_JOB';
 export const CHANGE_COMPANY = 'CHANGE_COMPANY';
 export const CHANGE_GENDER = 'CHANGE_GENDER';
@@ -36,9 +37,14 @@ export const addInterest = (interest) => ({
   interest
 });
 
-export const changeSocial = (social) => ({
-  type: CHANGE_SOCIAL,
-  social
+export const addSocialLink = (socialLink) => ({
+  type: ADD_SOCIAL_LINK,
+  socialLink
+});
+
+export const removeSocialLink = (socialLink) => ({
+  type: REMOVE_SOCIAL_LINK,
+  socialLink
 });
 
 export const changeJob = (job) => ({

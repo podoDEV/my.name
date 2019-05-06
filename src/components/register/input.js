@@ -7,6 +7,7 @@ export default class Input extends Component {
     type: PropTypes.string,
     value: PropTypes.any.isRequired,
     onChange: PropTypes.func.isRequired,
+    c: PropTypes.func,
     validator: PropTypes.func,
     fontSize: PropTypes.string,
     placeholder: PropTypes.string,
@@ -51,6 +52,7 @@ export default class Input extends Component {
             type={type}
             value={value}
             onChange={this.onChangeHandler}
+            onKeyDown={this.props.onKeyDown}
             style={{
               fontSize,
               width: this.props.value ? width : '100%',
