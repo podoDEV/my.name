@@ -256,3 +256,8 @@ export const KEYBOARD_MAP = [
   'WIN_OEM_CLEAR', // [254]
   '' // [255]
 ];
+
+export const socialLoginProvider = {
+  FACEBOOK: 'facebook',
+  GOOGLE: 'google'
+};

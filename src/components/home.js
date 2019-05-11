@@ -1,39 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {push as locationPush} from 'react-router-redux';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import Typing, {Backspace} from 'react-typing-animation';
 import {Grid, Row, Col} from 'react-flexbox-grid';
-import {login} from '../action/login';
+import FacebookLogin from 'react-facebook-login';
+import GoogleLogin from 'react-google-login';
+import {login, socialLogin} from '../action/login';
+import {socialLoginProvider} from '../constant';
 
 const nameList = ['______', 'jayoung', 'dalin', 'jung', 'heebeom', 'haesung', 'minsoo', 'kijung'];
 
 class Home extends React.Component {
-  static propTypes = {
-    login: PropTypes.func.isRequired
+  responseFacebook = (response) => {
+    this.props.socialLogin(response.accessToken, socialLoginProvider.FACEBOOK);
   };
 
-  state = {
-    email: '',
-    password: ''
-  };
-
-  onClickLogin = () => {
-    const {email, password} = this.state;
-    this.props.login(email, password);
-  };
-
-  handleEmail = (ev) => {
-    this.setState({
-      email: ev.target.value
-    });
-  };
-
-  handlePassword = (ev) => {
-    this.setState({
-      password: ev.target.value
-    });
+  responseGoogle = (response) => {
+    this.props.socialLogin(response.accessToken, socialLoginProvider.GOOGLE);
   };
 
   render() {
@@ -64,27 +48,33 @@ class Home extends React.Component {
             <div className="front__login">
               <p className="front__login__title">log in</p>
               <div className="front__form front__form-underline">
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="e-mail"
-                  value={this.state.email}
-                  onChange={this.handleEmail}
-                />
+                <input type="email" name="email" id="email" placeholder="e-mail" />
               </div>
               <div className="front__form">
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="password"
-                  value={this.state.password}
-                  onChange={this.handlePassword}
-                />
-                <button onClick={this.onClickLogin}>임시 버튼</button>
+                <input type="password" name="password" id="password" placeholder="password" />
+                {/* @TODO: redux input 으로 보내서 length에 따른 트랜지션 넣기 */}
+                <button className="login__arrow__btn" />
               </div>
-              <Link to="/register/first" className="front__join__in">
+              <FacebookLogin
+                appId={698935940508634}
+                autoLoad={true}
+                fields="name,email,picture"
+                textButton="Login with Facebook!"
+                cssClass="front__social__btn facebook"
+                callback={this.responseFacebook}
+              />
+              <GoogleLogin
+                clientId="131962867282-q995m8m3rv24dhehumh84icg03ctd52v.apps.googleusercontent.com"
+                buttonText="Login with Google!"
+                onSuccess={this.responseGoogle}
+                onFailure={this.responseGoogle}
+                cookiePolicy={'single_host_origin'}
+                className="front__social__btn google"
+                style={{
+                  width: '100%'
+                }}
+              />
+              <Link to="/signup/email" className="front__join__in">
                 join in
               </Link>
             </div>
@@ -97,7 +87,8 @@ class Home extends React.Component {
 
 const mapDispatchToProps = {
   locationPush,
-  login
+  login,
+  socialLogin
 };
 
 export default connect(
