@@ -50,6 +50,8 @@ class Home extends React.Component {
               </div>
               <div className="front__form">
                 <input type="password" name="password" id="password" placeholder="password" />
+                {/* @TODO: redux input 으로 보내서 length에 따른 트랜지션 넣기 */}
+                <button className="login__arrow__btn" />
               </div>
               <FacebookLogin
                 appId={698935940508634}

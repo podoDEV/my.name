@@ -13,7 +13,7 @@ const initialState = {
     password: '',
     name: '',
     interest: [],
-    social: '',
+    socialLinks: [],
     job: '',
     company: '',
     gender: '',

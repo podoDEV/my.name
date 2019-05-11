@@ -4,14 +4,17 @@ import {
   CHANGE_NAME,
   ADD_INTEREST,
   REMOVE_INTEREST,
-  CHANGE_SOCIAL,
+  ADD_SOCIAL_LINK,
+  REMOVE_SOCIAL_LINK,
   CHANGE_JOB,
   CHANGE_COMPANY,
   CHANGE_GENDER,
   CHANGE_LOCATION,
   CHANGE_PHILOSOPHY,
-  CHANGE_CONTACT
+  CHANGE_CONTACT,
+  CHANGE_SOCIAL_LINK_ORDER
 } from '../action/register';
+import {move} from '../util';
 
 export default (
   state = {
@@ -19,7 +22,7 @@ export default (
     password: '',
     name: '',
     interest: [],
-    social: '',
+    socialLinks: [],
     job: '',
     company: '',
     gender: '',
@@ -55,10 +58,20 @@ export default (
         ...state,
         interest: state.interest.filter((int) => int !== action.title)
       };
-    case CHANGE_SOCIAL:
+    case ADD_SOCIAL_LINK:
       return {
         ...state,
-        social: action.social
+        socialLinks: [...state.socialLinks, action.socialLink]
+      };
+    case REMOVE_SOCIAL_LINK:
+      return {
+        ...state,
+        socialLinks: state.socialLinks.filter((link) => link !== action.socialLink)
+      };
+    case CHANGE_SOCIAL_LINK_ORDER:
+      return {
+        ...state,
+        socialLinks: move([...state.socialLinks], action.oldIndex, action.newIndex)
       };
     case CHANGE_JOB:
       return {
