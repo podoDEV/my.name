@@ -11,8 +11,10 @@ import {
   CHANGE_GENDER,
   CHANGE_LOCATION,
   CHANGE_PHILOSOPHY,
-  CHANGE_CONTACT
+  CHANGE_CONTACT,
+  CHANGE_SOCIAL_LINK_ORDER
 } from '../action/register';
+import {move} from '../util';
 
 export default (
   state = {
@@ -65,6 +67,11 @@ export default (
       return {
         ...state,
         socialLinks: state.socialLinks.filter((link) => link !== action.socialLink)
+      };
+    case CHANGE_SOCIAL_LINK_ORDER:
+      return {
+        ...state,
+        socialLinks: move([...state.socialLinks], action.oldIndex, action.newIndex)
       };
     case CHANGE_JOB:
       return {

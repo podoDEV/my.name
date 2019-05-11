@@ -28,6 +28,10 @@ export const urlRegister = (url) => {
       '(\\#[-a-z\\d_]*)?$',
     'i'
   ); // fragment locator
+  const isValid = !!pattern.test(url);
 
-  return !!pattern.test(url);
+  return {
+    isValid,
+    errorMessage: isValid ? '' : 'url in invalid format'
+  };
 };

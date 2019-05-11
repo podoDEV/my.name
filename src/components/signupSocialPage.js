@@ -4,11 +4,14 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
+import doneArrow from '../st/img/doneArrow.png';
+import SocialLinkList from './socialLinkList';
 import Input from './register/input';
 import Navigation from './register/navigation';
 import {addSocialLink, removeSocialLink} from '../action/register';
 import {changeStep} from '../action/registerNavigation';
 import {KEYBOARD_MAP} from '../constant';
+import {urlRegister} from '../validation';
 
 class SignupSocialPage extends React.Component {
   pageIndex = 3;
@@ -18,7 +21,6 @@ class SignupSocialPage extends React.Component {
   };
 
   static propTypes = {
-    socialLinks: PropTypes.array.isRequired,
     changeStep: PropTypes.func.isRequired,
     addSocialLink: PropTypes.func.isRequired,
     removeSocialLink: PropTypes.func.isRequired
@@ -50,7 +52,6 @@ class SignupSocialPage extends React.Component {
   };
 
   render() {
-    const {socialLinks} = this.props;
     //@TODO: validation 함수 필요
     return (
       <div className="front__register">
@@ -66,22 +67,18 @@ class SignupSocialPage extends React.Component {
             onKeyDown={this.handleKeyDownInput}
             fontSize="70px"
             placeholder="link here"
+            validator={urlRegister}
           />
           <a className="social__add__button" href="#" onClick={this.handleClickAddBtn}>
             add
           </a>
         </div>
-        <div className="register__social__link__list">
-          {socialLinks.map((link) => (
-            <div key={link} className="register__social__link__item">
-              <p>{link}</p>
-            </div>
-          ))}
-        </div>
+        <SocialLinkList />
         <div className="front__register__next">
           <Link to="/signup/more" className="front__register__next__title">
-            done
+            next
           </Link>
+          <img src={doneArrow} />
         </div>
       </div>
     );

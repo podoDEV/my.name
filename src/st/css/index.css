@@ -79,6 +79,15 @@ select:-webkit-autofill:focus {
   font-family: Avenir-light, sans-serif;
   padding: 12px 0;
   display: flex;
+  align-items: center;
+}
+
+.front__form .login__arrow__btn {
+  background: url('../../st/img/loginArrow.png') center/14px no-repeat;
+  height: 14px;
+  width: 14px;
+  border: none;
+  cursor: pointer;
 }
 
 .front__form-underline {
@@ -172,6 +181,8 @@ select:-webkit-autofill:focus {
   font-size: 44px;
   font-family: Avenir, sans-serif;
   cursor: pointer;
+  background: white;
+  font-weight: lighter;
 }
 
 .register__social__link__item a {
@@ -180,9 +191,20 @@ select:-webkit-autofill:focus {
   color: #000;
 }
 
+.register__social__link__item--move {
+  background: rgba(200, 200, 200, 0.05);
+  color: rgba(0, 0, 0, 0.45);
+}
+
 .front__register__next {
-  padding: 5% 0;
-  text-align: right;
+  height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.front__register__next img {
+  height: 66px;
 }
 
 .front__register__next__title {
